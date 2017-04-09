@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RichiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="RJ_ADMINISTRADORES">
+    <Key>
+      <PropertyRef Name="RJ_ADMINISTRADORES_ID" />
+    </Key>
+    <Property Name="RJ_ADMINISTRADORES_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+    <Property Name="APELLIDO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar(max)" Nullable="false" />
+    <Property Name="CONTRASENA" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RJ_AFILIADOS">
+    <Key>
+      <PropertyRef Name="RJ_AFILIADOS_ID" />
+    </Key>
+    <Property Name="RJ_AFILIADOS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="URL" Type="varchar(max)" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RJ_CATEGORIAS">
+    <Key>
+      <PropertyRef Name="RJ_CATEGORIAS_ID" />
+    </Key>
+    <Property Name="RJ_CATEGORIAS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RJ_PUESTOS">
+    <Key>
+      <PropertyRef Name="RJ_PUESTOS_ID" />
+    </Key>
+    <Property Name="RJ_PUESTOS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="COMPANIA" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LOGO" Type="image" />
+    <Property Name="URL" Type="varchar(max)" />
+    <Property Name="POSICION" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UBICACION" Type="varchar(max)" Nullable="false" />
+    <Property Name="RJ_CATEGORIAS_ID" Type="int" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar(max)" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar(max)" Nullable="false" />
+    <Property Name="PERMISOS_AFILIADOS" Type="bit" Nullable="false" />
+    <Property Name="FECHA_INICIO" Type="date" Nullable="false" />
+    <Property Name="FECHA_FINAL" Type="date" Nullable="false" />
+    <Property Name="ESTADO" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__RJ_PUESTO__RJ_CA__440B1D61">
+    <End Role="RJ_CATEGORIAS" Type="Self.RJ_CATEGORIAS" Multiplicity="1" />
+    <End Role="RJ_PUESTOS" Type="Self.RJ_PUESTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RJ_CATEGORIAS">
+        <PropertyRef Name="RJ_CATEGORIAS_ID" />
+      </Principal>
+      <Dependent Role="RJ_PUESTOS">
+        <PropertyRef Name="RJ_CATEGORIAS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RichiModelStoreContainer">
+    <EntitySet Name="RJ_ADMINISTRADORES" EntityType="Self.RJ_ADMINISTRADORES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RJ_AFILIADOS" EntityType="Self.RJ_AFILIADOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RJ_CATEGORIAS" EntityType="Self.RJ_CATEGORIAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RJ_PUESTOS" EntityType="Self.RJ_PUESTOS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__RJ_PUESTO__RJ_CA__440B1D61" Association="Self.FK__RJ_PUESTO__RJ_CA__440B1D61">
+      <End Role="RJ_CATEGORIAS" EntitySet="RJ_CATEGORIAS" />
+      <End Role="RJ_PUESTOS" EntitySet="RJ_PUESTOS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

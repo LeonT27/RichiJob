@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RichiModelStoreContainer" CdmEntityContainer="RICHIJOBEntities">
+    <EntitySetMapping Name="RJ_ADMINISTRADORES">
+      <EntityTypeMapping TypeName="RichiModel.RJ_ADMINISTRADORES">
+        <MappingFragment StoreEntitySet="RJ_ADMINISTRADORES">
+          <ScalarProperty Name="RJ_ADMINISTRADORES_ID" ColumnName="RJ_ADMINISTRADORES_ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RJ_AFILIADOS">
+      <EntityTypeMapping TypeName="RichiModel.RJ_AFILIADOS">
+        <MappingFragment StoreEntitySet="RJ_AFILIADOS">
+          <ScalarProperty Name="RJ_AFILIADOS_ID" ColumnName="RJ_AFILIADOS_ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RJ_CATEGORIAS">
+      <EntityTypeMapping TypeName="RichiModel.RJ_CATEGORIAS">
+        <MappingFragment StoreEntitySet="RJ_CATEGORIAS">
+          <ScalarProperty Name="RJ_CATEGORIAS_ID" ColumnName="RJ_CATEGORIAS_ID" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RJ_PUESTOS">
+      <EntityTypeMapping TypeName="RichiModel.RJ_PUESTOS">
+        <MappingFragment StoreEntitySet="RJ_PUESTOS">
+          <ScalarProperty Name="RJ_PUESTOS_ID" ColumnName="RJ_PUESTOS_ID" />
+          <ScalarProperty Name="COMPANIA" ColumnName="COMPANIA" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="LOGO" ColumnName="LOGO" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="POSICION" ColumnName="POSICION" />
+          <ScalarProperty Name="UBICACION" ColumnName="UBICACION" />
+          <ScalarProperty Name="RJ_CATEGORIAS_ID" ColumnName="RJ_CATEGORIAS_ID" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PERMISOS_AFILIADOS" ColumnName="PERMISOS_AFILIADOS" />
+          <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
+          <ScalarProperty Name="FECHA_FINAL" ColumnName="FECHA_FINAL" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

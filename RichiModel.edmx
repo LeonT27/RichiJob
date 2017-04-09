@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RichiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="RJ_ADMINISTRADORES">
+          <Key>
+            <PropertyRef Name="RJ_ADMINISTRADORES_ID" />
+          </Key>
+          <Property Name="RJ_ADMINISTRADORES_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="APELLIDO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar(max)" Nullable="false" />
+          <Property Name="CONTRASENA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ESTADO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RJ_AFILIADOS">
+          <Key>
+            <PropertyRef Name="RJ_AFILIADOS_ID" />
+          </Key>
+          <Property Name="RJ_AFILIADOS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="URL" Type="varchar(max)" />
+          <Property Name="ESTADO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RJ_CATEGORIAS">
+          <Key>
+            <PropertyRef Name="RJ_CATEGORIAS_ID" />
+          </Key>
+          <Property Name="RJ_CATEGORIAS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ESTADO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RJ_PUESTOS">
+          <Key>
+            <PropertyRef Name="RJ_PUESTOS_ID" />
+          </Key>
+          <Property Name="RJ_PUESTOS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COMPANIA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TIPO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LOGO" Type="image" />
+          <Property Name="URL" Type="varchar(max)" />
+          <Property Name="POSICION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UBICACION" Type="varchar(max)" Nullable="false" />
+          <Property Name="RJ_CATEGORIAS_ID" Type="int" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar(max)" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar(max)" Nullable="false" />
+          <Property Name="PERMISOS_AFILIADOS" Type="bit" Nullable="false" />
+          <Property Name="FECHA_INICIO" Type="date" Nullable="false" />
+          <Property Name="FECHA_FINAL" Type="date" Nullable="false" />
+          <Property Name="ESTADO" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__RJ_PUESTO__RJ_CA__440B1D61">
+          <End Role="RJ_CATEGORIAS" Type="Self.RJ_CATEGORIAS" Multiplicity="1" />
+          <End Role="RJ_PUESTOS" Type="Self.RJ_PUESTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RJ_CATEGORIAS">
+              <PropertyRef Name="RJ_CATEGORIAS_ID" />
+            </Principal>
+            <Dependent Role="RJ_PUESTOS">
+              <PropertyRef Name="RJ_CATEGORIAS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RichiModelStoreContainer">
+          <EntitySet Name="RJ_ADMINISTRADORES" EntityType="Self.RJ_ADMINISTRADORES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RJ_AFILIADOS" EntityType="Self.RJ_AFILIADOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RJ_CATEGORIAS" EntityType="Self.RJ_CATEGORIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RJ_PUESTOS" EntityType="Self.RJ_PUESTOS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__RJ_PUESTO__RJ_CA__440B1D61" Association="Self.FK__RJ_PUESTO__RJ_CA__440B1D61">
+            <End Role="RJ_CATEGORIAS" EntitySet="RJ_CATEGORIAS" />
+            <End Role="RJ_PUESTOS" EntitySet="RJ_PUESTOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RichiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="RJ_ADMINISTRADORES">
+          <Key>
+            <PropertyRef Name="RJ_ADMINISTRADORES_ID" />
+          </Key>
+          <Property Name="RJ_ADMINISTRADORES_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONTRASENA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RJ_AFILIADOS">
+          <Key>
+            <PropertyRef Name="RJ_AFILIADOS_ID" />
+          </Key>
+          <Property Name="RJ_AFILIADOS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RJ_CATEGORIAS">
+          <Key>
+            <PropertyRef Name="RJ_CATEGORIAS_ID" />
+          </Key>
+          <Property Name="RJ_CATEGORIAS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="RJ_PUESTOS" Relationship="Self.FK__RJ_PUESTO__RJ_CA__440B1D61" FromRole="RJ_CATEGORIAS" ToRole="RJ_PUESTOS" />
+        </EntityType>
+        <EntityType Name="RJ_PUESTOS">
+          <Key>
+            <PropertyRef Name="RJ_PUESTOS_ID" />
+          </Key>
+          <Property Name="RJ_PUESTOS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COMPANIA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOGO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="POSICION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UBICACION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RJ_CATEGORIAS_ID" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PERMISOS_AFILIADOS" Type="Boolean" Nullable="false" />
+          <Property Name="FECHA_INICIO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FECHA_FINAL" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ESTADO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="RJ_CATEGORIAS" Relationship="Self.FK__RJ_PUESTO__RJ_CA__440B1D61" FromRole="RJ_PUESTOS" ToRole="RJ_CATEGORIAS" />
+        </EntityType>
+        <Association Name="FK__RJ_PUESTO__RJ_CA__440B1D61">
+          <End Role="RJ_CATEGORIAS" Type="Self.RJ_CATEGORIAS" Multiplicity="1" />
+          <End Role="RJ_PUESTOS" Type="Self.RJ_PUESTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RJ_CATEGORIAS">
+              <PropertyRef Name="RJ_CATEGORIAS_ID" />
+            </Principal>
+            <Dependent Role="RJ_PUESTOS">
+              <PropertyRef Name="RJ_CATEGORIAS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RICHIJOBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RJ_ADMINISTRADORES" EntityType="Self.RJ_ADMINISTRADORES" />
+          <EntitySet Name="RJ_AFILIADOS" EntityType="Self.RJ_AFILIADOS" />
+          <EntitySet Name="RJ_CATEGORIAS" EntityType="Self.RJ_CATEGORIAS" />
+          <EntitySet Name="RJ_PUESTOS" EntityType="Self.RJ_PUESTOS" />
+          <AssociationSet Name="FK__RJ_PUESTO__RJ_CA__440B1D61" Association="Self.FK__RJ_PUESTO__RJ_CA__440B1D61">
+            <End Role="RJ_CATEGORIAS" EntitySet="RJ_CATEGORIAS" />
+            <End Role="RJ_PUESTOS" EntitySet="RJ_PUESTOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RichiModelStoreContainer" CdmEntityContainer="RICHIJOBEntities">
+          <EntitySetMapping Name="RJ_ADMINISTRADORES">
+            <EntityTypeMapping TypeName="RichiModel.RJ_ADMINISTRADORES">
+              <MappingFragment StoreEntitySet="RJ_ADMINISTRADORES">
+                <ScalarProperty Name="RJ_ADMINISTRADORES_ID" ColumnName="RJ_ADMINISTRADORES_ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RJ_AFILIADOS">
+            <EntityTypeMapping TypeName="RichiModel.RJ_AFILIADOS">
+              <MappingFragment StoreEntitySet="RJ_AFILIADOS">
+                <ScalarProperty Name="RJ_AFILIADOS_ID" ColumnName="RJ_AFILIADOS_ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RJ_CATEGORIAS">
+            <EntityTypeMapping TypeName="RichiModel.RJ_CATEGORIAS">
+              <MappingFragment StoreEntitySet="RJ_CATEGORIAS">
+                <ScalarProperty Name="RJ_CATEGORIAS_ID" ColumnName="RJ_CATEGORIAS_ID" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RJ_PUESTOS">
+            <EntityTypeMapping TypeName="RichiModel.RJ_PUESTOS">
+              <MappingFragment StoreEntitySet="RJ_PUESTOS">
+                <ScalarProperty Name="RJ_PUESTOS_ID" ColumnName="RJ_PUESTOS_ID" />
+                <ScalarProperty Name="COMPANIA" ColumnName="COMPANIA" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+                <ScalarProperty Name="LOGO" ColumnName="LOGO" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="POSICION" ColumnName="POSICION" />
+                <ScalarProperty Name="UBICACION" ColumnName="UBICACION" />
+                <ScalarProperty Name="RJ_CATEGORIAS_ID" ColumnName="RJ_CATEGORIAS_ID" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PERMISOS_AFILIADOS" ColumnName="PERMISOS_AFILIADOS" />
+                <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
+                <ScalarProperty Name="FECHA_FINAL" ColumnName="FECHA_FINAL" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

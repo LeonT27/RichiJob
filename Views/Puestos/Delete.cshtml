@@ -1,0 +1,129 @@
+﻿@model Richi.Shop._1.RJ_PUESTOS
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RJ_PUESTOS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.COMPANIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COMPANIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TIPO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIPO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOGO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOGO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.URL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.URL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.POSICION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.POSICION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UBICACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UBICACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PERMISOS_AFILIADOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PERMISOS_AFILIADOS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_INICIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_INICIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_FINAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_FINAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RJ_CATEGORIAS.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RJ_CATEGORIAS.DESCRIPCION)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

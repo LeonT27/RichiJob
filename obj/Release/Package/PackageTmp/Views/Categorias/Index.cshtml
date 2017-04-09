@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Richi.Shop._1.RJ_CATEGORIAS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Categorias</h2>
+<br/>
+<br/>
+<ul class="nav nav-pills">
+    @foreach (var item in Model)
+    {
+        <li>
+            @Html.ActionLink(item.DESCRIPCION, "Categoria", "Puestos", new { id = item.RJ_CATEGORIAS_ID }, null)
+        </li>
+    }
+</ul>

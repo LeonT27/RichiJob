@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Richi.Shop._1.RJ_PUESTOS>
+
+@{
+    ViewBag.Title = "Categoria";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Puestos</h2>
+
+<p>
+    @Html.ActionLink("Publica un trabajo!", "Create", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Compañia
+        </th>
+        <th>
+            Posicion de trabajo
+        </th>
+        <th>
+            Ubicacion
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.COMPANIA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.POSICION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UBICACION)
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "Details", new { id = item.RJ_PUESTOS_ID })
+            </td>
+        </tr>
+    }
+
+</table>
+

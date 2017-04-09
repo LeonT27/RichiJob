@@ -1,0 +1,24 @@
+﻿@model Richi.Shop._1.RJ_PUESTOS
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <hr />
+    <p class="pull-right">Este anuncio termina: @Html.DisplayFor(model => model.FECHA_FINAL.Date)</p>
+    <h1>@Html.DisplayFor(model => model.COMPANIA)</h1>
+    <h3>@Html.DisplayFor(model => model.UBICACION)</h3>
+    <p>@Html.DisplayFor(model => model.RJ_CATEGORIAS.DESCRIPCION)</p>
+    <hr />
+    <p>@Html.DisplayFor(model => model.POSICION) - @Html.DisplayFor(model => model.TIPO)</p>
+    <hr />
+    <p>@Html.DisplayFor(model => model.DESCRIPCION)</p>
+    <p>Como aplicar?</p>
+    <p>@Html.DisplayFor(model => model.EMAIL) - @Html.DisplayFor(model => model.URL)</p>
+</div>
+<p>
+    @Html.ActionLink("Atras", "Index")
+</p>
